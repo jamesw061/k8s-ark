@@ -72,23 +72,23 @@ Disk space depend of the map, but usually you need between 15 GB and 30 GB to be
 
 Check server status : 
 
-    kubectl exec -n ark pod_name arkmanager status
+    kubectl exec -n ark pod_name -- arkmanager status
 
 Force save :
 
-    kubectl exec -n ark pod_name arkmanager saveworld
+    kubectl exec -n ark pod_name -- arkmanager saveworld
 
 Force update : 
 
-    kubectl exec -n ark pod_name arkmanager update --force
+    kubectl exec -n ark pod_name -- arkmanager update --force
 
 Force backup : 
 
-    kubectl exec -n ark pod_name arkmanager backup
+    kubectl exec -n ark pod_name -- arkmanager backup
 
 Execute Rcon command : 
 
-    kubectl exec -n ark pod_name arkmanager rconcmd ListPlayers
+    kubectl exec -n ark pod_name -- arkmanager rconcmd ListPlayers
 
 
 
