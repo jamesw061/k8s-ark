@@ -16,33 +16,42 @@ spec:
     spec:
       containers:
       - name: ark-test
-        image: cyrilbkr/ark
+        image: hermsi/ark-server
         imagePullPolicy: Always
         env:
           - name: ADMINPASSWORD
             value: "admin"
-          - name: NBPLAYERS
+          - name: MAX_PLAYERS
             value: "10"
           - name: SESSIONNAME
             value: "k8s-ark"
-          - name: SERVERMAP
+          - name: SERVER_MAP
             value: "TheIsland"
+          - name: SERVER_PASSWORD
+            value: "welcome"
           - name: TZ
-            value: "France"
-          - name: SERVERPORT
-            value: "27018"
-          - name: STEAMPORT
-            value: "7781"
+            value: "UK"
+          - name: GAME_CLIENT_PORT
+            value: "7777"
+          - name: UDP_SOCKET_PORT
+            value: "7778"
+          - name: RCON_PORT
+            value: "27020"
+          - name: SERVER_LIST_PORT
+            value: "27015"
         ports:
-        - containerPort: 27018
+        - containerPort: 7777
           name: serverport
           protocol: UDP
-        - containerPort: 7781
-          name: steam
+        - containerPort: 7778
+          name: raw
           protocol: UDP
-        - containerPort: 32330
+        - containerPort: 27020
           name: rcon
           protocol: TCP
+        - containerPort: 27015
+          name: serverlist
+          protocol: UDP
         resources:
           requests:
             memory: "4Gi"
@@ -51,12 +60,15 @@ spec:
             memory: "16Gi"
             cpu: "2"
         ports:
-        - containerPort: 27018
+        - containerPort: 7777
           name: serverport
           protocol: UDP
-        - containerPort: 7781
-          name: steam
+        - containerPort: 7778
+          name: raw
           protocol: UDP
-        - containerPort: 32330
+        - containerPort: 27020
           name: rcon
           protocol: TCP
+        - containerPort: 27015
+          name: serverlist
+          protocol: UDP
