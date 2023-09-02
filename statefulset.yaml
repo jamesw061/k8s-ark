@@ -23,8 +23,8 @@ spec:
             value: "admin"
           - name: MAX_PLAYERS
             value: "10"
-          - name: SESSIONNAME
-            value: "k8s-ark"
+          - name: SESSION_NAME
+            value: "space ark server"
           - name: SERVER_MAP
             value: "TheIsland"
           - name: SERVER_PASSWORD
